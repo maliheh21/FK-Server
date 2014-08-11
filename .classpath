@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/jce-jdk13-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/jce-ext-jdk12-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/jce-ext-jdk13-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/jce-jdk12-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bctest-jdk13-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bctest-jdk14-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bctest-jdk15on-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcprov-jdk12-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcprov-jdk13-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcprov-jdk14-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcprov-jdk15on-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bctest-jdk12-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcprov-ext-debug-jdk14-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcprov-ext-debug-jdk15on-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcprov-ext-jdk12-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcprov-ext-jdk13-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcprov-ext-jdk14-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcprov-ext-jdk15on-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcpg-jdk14-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcpg-jdk15on-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcpkix-jdk12-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcpkix-jdk13-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcpkix-jdk14-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcpkix-jdk15on-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcprov-debug-jdk14-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcprov-debug-jdk15on-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcmail-jdk13-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcmail-jdk14-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcmail-jdk15on-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcpg-jdk12-150.jar"/>
+	<classpathentry kind="lib" path="/Users/mac/Documents/workspace/FK-Server/Lib/bcpg-jdk13-150.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
