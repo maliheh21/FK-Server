@@ -44,7 +44,7 @@ public class OPRF {
 	SocketException, IOException {
 		byte[] receiveData = new byte[1024];
 		InetAddress deviceAddr = InetAddress.getByName(Constants.SERVERIP);
-		DatagramSocket socket = new DatagramSocket(Constants.SERVERPORT, deviceAddr);
+		DatagramSocket socket = new DatagramSocket(Constants.SERVERPORT2, deviceAddr);
 		
 		 System.out.println("Socket Created ");
 

@@ -39,27 +39,28 @@ public class AuxServer {
 
 	private static void keyExchange() throws IOException {
 		
+		OPRF.getAlpha_sendBeta();
+
 		File file = new File("wi");
 		FileInputStream fis = new FileInputStream("wi");
 		byte[] wi = new byte[(int) file.length()];
 		fis.read(wi);
 		fis.close();
 		
-		try {
-		    Thread.sleep(1000);
-		} catch(InterruptedException ex) {
-		    Thread.currentThread().interrupt();
-		}
 		
-		DatagramSocket socket = new DatagramSocket();
-	    InetAddress clientIPAddress = InetAddress.getByName(Constants.CLIENTIP);	    
-	    
-	    DatagramPacket sendPacket = new DatagramPacket(wi, wi.length, clientIPAddress, Constants.CLIENTPORT);
+		//we should just send wi but it I was lazy to handle threads so a send and receive
+		byte[] receiveData = new byte[1024];
+		InetAddress serverAddr = InetAddress.getByName(Constants.SERVERIP);
+		DatagramSocket socket = new DatagramSocket(Constants.SERVERPORT3, serverAddr);
+		DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+		socket.receive(receivePacket);
+		System.out.println("Received request");
+	    DatagramPacket sendPacket = new DatagramPacket(wi, wi.length, receivePacket.getAddress(), receivePacket.getPort());
 		socket.send(sendPacket);
-		System.out.println("Sent wi");
-		socket.close();
+		System.out.println("Sent w_i");
+		socket.close(); 
 		socket.disconnect();
-		OPRF.getAlpha_sendBeta();
+
 		
 //	    byte[] receiveData = new byte[4096];
 //	    DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
@@ -71,30 +72,26 @@ public class AuxServer {
 	private static void initialization() throws InvalidKeyException, NoSuchAlgorithmException, InvalidParameterSpecException, InvalidAlgorithmParameterException, FileNotFoundException, IOException, InvalidKeySpecException {
 //		SInit();
 //		Send pi_i to the client, receive W =(PI, CI), K_i (store K_i in Zeta_i)
-		KeyGen.createSenderKey();
-		byte[] pi_i = getHexString(KeyGen.retrivePubKey("pi_i")); 
 	    
-		DatagramSocket socket = new DatagramSocket();
-	    InetAddress clientIPAddress = InetAddress.getByName(Constants.CLIENTIP);	    
-	    
-	    DatagramPacket sendPacket = new DatagramPacket(pi_i, pi_i.length, clientIPAddress, Constants.CLIENTPORT);
-		socket.send(sendPacket);
-		
+		DatagramSocket socket = new DatagramSocket(Constants.SERVERPORT2);	    		
 	    byte[] receiveData = new byte[4096];
 	    DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
 	    socket.receive(receivePacket);
 	    String wi = new String(receivePacket.getData());
+	    String[] temp = wi.split(",");
+	    socket.close();
+	    socket.disconnect();
 	    
 //	    Store W_i = (PI, CI) in wi 
 //	    vector PI = public key of servers, vector CI = secret shared with servers, c_i = s_i xor F_pi(r)
 //	    rwd is secret shared to s_i, r = H(pwd, H'(pwd)^k)
 	    FileOutputStream fos = new FileOutputStream("wi");
-		fos.write(wi.getBytes());
+		fos.write((temp[0] + "," + temp[1]).getBytes());
 		fos.close();
 		
 //		store key in file named zeta
 	    fos = new FileOutputStream("zeta");
-		fos.write(wi.getBytes());
+		fos.write(temp[2].getBytes());
 		fos.close();
 		
 	    System.out.println("Vectors received from web client:" + wi);
