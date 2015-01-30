@@ -42,6 +42,7 @@ public class OPRF {
 	
 	public static void getAlpha_sendBeta() throws UnknownHostException,
 	SocketException, IOException {
+						
 		byte[] receiveData = new byte[1024];
 		InetAddress deviceAddr = InetAddress.getByName(Constants.SERVERIP);
 		DatagramSocket socket = new DatagramSocket(Constants.SERVERPORT2, deviceAddr);
@@ -77,7 +78,7 @@ public class OPRF {
 		return encodePoint(multiplier);
 	}
 	
-	private static String encodePoint(org.bouncycastle.math.ec.ECPoint point) {
+	static String encodePoint(org.bouncycastle.math.ec.ECPoint point) {
 		// TODO Auto-generated method stub
 		BigInteger x = point.getAffineXCoord().toBigInteger();
 		BigInteger y = point.getAffineYCoord().toBigInteger();

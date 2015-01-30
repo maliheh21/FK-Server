@@ -8,6 +8,7 @@ import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jce.ECNamedCurveTable;
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.math.ec.ECCurve;
+import org.bouncycastle.math.ec.ECFieldElement;
 import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.util.encoders.Hex;
 
@@ -36,7 +37,6 @@ public class Tests {
 //		System.out.println("RWD_Secret " + rwd + "\n");
 
 //		System.out.println(Hash(Constants.PASSWORD, rwd)); //r = H(pwd, H'(pwd)^k)
-		
 		BigInteger q = ecSpec.getN().add(BigInteger.valueOf(-1L)).divide(BigInteger.valueOf(2L));
 		BigInteger p = ecSpec.getN();
 		BigInteger ro = randomRo(q); 
@@ -44,6 +44,15 @@ public class Tests {
 		System.out.println("ro mult roInv: " + ro.multiply(roInverse).mod(q));
 		
 		System.out.println("q " + q.toString(16) + "\nro " + ro.toString(16) + "\nroInverse " + roInverse.toString(16));
+		
+		ECFieldElement ecfe_rho = curve.fromBigInteger(Constants.RHO); //new ECFieldElement.F2m(283, 283, 5, 7, 12, Constants.RHO);
+		System.out.println(ecfe_rho.invert().toString());
+		
+		org.bouncycastle.math.ec.ECPoint ecNewPoint = EC5Util.convertPoint(curve, Constants.HASH_OF_PASSWORD, false);
+		org.bouncycastle.math.ec.ECPoint multiplier = ecNewPoint.multiply(Constants.RHO).multiply(Constants.RHO_INVERSE);
+		System.out.println(multiplier.getAffineXCoord());
+
+		
 		
 //		ECPoint eck1  = EC5Util.convertPoint(curve, Constants.HASH_OF_S1, false);
 //		String k_1 = FOPRF.OPRF_Encode(new BigInteger(rwd, 16), eck1); //k_1 = F_rwd(i) = H'(i)^rwd

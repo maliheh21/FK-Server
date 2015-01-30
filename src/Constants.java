@@ -3,19 +3,21 @@ import java.math.BigInteger;
 import java.security.spec.ECPoint;
 
 
+
 public class Constants {
 
 	public static final Integer TAU = 256; //sha-256
 	public static final Integer L = 224;
 	public static final String CURVE_NAME = "B-283";
 	public static final Integer KEY_LENGTH = 128;
+	public static final String MU_PRIME = "d448bd13f7cf88b8";
 	public static final String OPRF_KEY = "123456789abcdef03456789abcdef012";
 	public static final String PARAM_FILE = "parameters";
 	public static final String PASSWORD = "abcdefghijklmno";
 	public static final ECPoint HASH_OF_PASSWORD = new ECPoint
 			(new BigInteger("0000000005157E4295D6FF0C5B3D9D00FA1B0D76A04ADBF90252C748B2C46850BDCF32AFBF9C5AAB", 16), 
 			 new BigInteger("0000000002A28F1B83177FAC4824222D412B691FA51524DF126D535AFF08BB739A9F304A236397AF", 16));
-	public static final String ECOH_OF_PASSWORD = "2D9ECE807D0D86BB50256DFC812963A4596234285EE79957DFCE2D55";
+	public static final String ECOH_OF_PASSWORD = "2D9ECE807D0D86BB5 0256DFC812963A4596234285EE79957DFCE2D55";
 	public static final String r = "d3161558ed9579d2654a87f3a6cc4a14934e36c86ce59323c9ce7f12388c62f8"; //H(pwd,H'(pwd)^k)
 	public static final ECPoint RWD = new ECPoint //F_k(pwd)
 			(new BigInteger("5701a4ffee748ba482b77a70967ebb23e5fe1529f80ae24b41a53dfdd55e8e8dee07f5f", 16), 
@@ -29,6 +31,9 @@ public class Constants {
 	public static final ECPoint HASH_OF_S2 = new ECPoint
 			(new BigInteger("00000000060883ADE578F697250191F30EB2F4094732BB667D7D90AEB0C6AB30EC9AC49D96EB54C8", 16), 
 			 new BigInteger("000000000100886D599FEB046E1F19682446D3D2870CB2712B6C4432B0D420443F6CDA67C42F2E2D", 16));
+	public static final BigInteger RHO = new BigInteger("5f939258db7dd90e1934f8c70b0dfec2eed25b8557eac9c80e2e198f8cdbecd86b12053",16);
+	public static final BigInteger RHO_INVERSE = new BigInteger("07ba4d2655470fdd937954c1041ed1a140e38f0f57279e7c1ef6e8870297765e9d0fc95a",16);
+	
 	
 	//	q = 3885337784451458141838923813647037813284812962188452444554598263385022138893689346435
 	//	ro = 2838160020818469376471695134906999654378910967155431414528928912391080551588401921909
@@ -42,17 +47,30 @@ public class Constants {
 	//	k_1= 5d1bb11138a48b72c2283aab0db2e6b6d9fda81a20a15d63cbe92dc20e08ebc44122b90,54ff6d3404a27d601fd09573c39cd4d2a1d898843c7ec5f970d12cc16ef3d1aa9eddfcd //F_rwd(i) = Hash(i)^rwd
 	//	k_2= 5d1bb11138a48b72c2283aab0db2e6b6d9fda81a20a15d63cbe92dc20e08ebc44122b90,54ff6d3404a27d601fd09573c39cd4d2a1d898843c7ec5f970d12cc16ef3d1aa9eddfcd //F_rwd(i) = Hash(i)^rwd
 
-	public static String SERVERIP = "164.111.138.5";
+	public static String SERVERIP = "192.168.1.153";
+	public static int SERVERPORT = 25012;
+	public static String WEBSERVERIP = "192.168.1.153";
+	public static int WEBSERVERPORT = 25006;
+	public static String CLIENTIP = "192.168.1.153";
+	public static int CLIENTPORT = 25008;
+	public static String DEVICEIP = "192.168.1.241";
+	public static int DEVICEPORT = 25010;
+	public static int SERVERPORT2 = 25014;
+	public static int SERVERPORT3 = 25016;
+	
+	
+/*	
+	public static String SERVERIP = "164.111.138.48";
 	public static int SERVERPORT = 25012;
 	public static int SERVERPORT2 = 25014;
 	public static int SERVERPORT3 = 25016;
-	public static String WEBSERVERIP = "164.111.138.5";
+	public static String WEBSERVERIP = "164.111.138.48";
 	public static int WEBSERVERPORT = 25006;
-	public static String CLIENTIP = "164.111.138.5";
+	public static String CLIENTIP = "164.111.138.48";
 	public static int CLIENTPORT = 25008;
-	public static String DEVICEIP = "164.111.137.148";
+	public static String DEVICEIP = "164.111.197.158";
 	public static int DEVICEPORT = 25010;
-	
+*/	
 
 
 //	public static final String U_PRIME = "1234567890abcdeffedcba0987654321";
